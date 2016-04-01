@@ -11,12 +11,39 @@ literal		\"[^\"]*\"
 newline		\n
 whitespace	[ \t]+
 %%
-"int"		{ printf("INT "); }
-"if"		{ printf("IF "); }
-"do"		{ printf("DO "); }
-"while"		{ printf("WHILE "); }
-"sizeof"	{ printf("SIZEOF "); }
+"auto"		{ printf("AUTO "); }
+"double"	{ printf("DOUBLE ")}
+"int"			{ printf("INT "); }
+"struct"	{ printf("STRUCT "); }
+"break"		{ printf("BREAK "); }
 "else"		{ printf("ELSE "); }
+"long"		{ printf("LONG"); }
+"switch"	{ printf("SWITCH"); }
+"case"		{ printf("CASE"); }
+"enum"		{ printf("ENUM"); }
+"register"{ printf("REGISTER"); }
+"typedef"	{ printf("TYPEDEF"); }
+"char"		{ printf("CHAR"); }
+"extern"	{ printf("EXTERN"); }
+"return"	{ printf("RETURN"); }
+"union"		{ printf("UNION"); }
+"const"		{ printf("CONST"); }
+"float"		{ printf("FLOAT"); }
+"short"		{ printf("SHORT"); }
+"unsigned"{ printf("UNSIGNED"); }
+"continue"{ printf("CONTINUE"); }
+"for"			{ printf("FOR"); }
+"signed"	{ printf("SIGNED"); }
+"void"		{ printf("VOID"); }
+"default"	{ printf("DEFAULT"); }
+"goto"		{ printf("GOTO"); }
+"sizeof"	{ printf("SIZEOF"); }
+"volatile"{ printf("VOLATILE"); }
+"do"			{ printf("DO "); }
+"if"			{ printf("IF "); }
+"static"	{ printf("STATIC"); }
+"while"		{ printf("WHILE "); }
+
 "="		{ printf("ASSIGN "); }
 "=="		{ printf("EQ "); }
 "<"		{ printf("LT "); }
@@ -43,5 +70,3 @@ int main() {
 }
 int yywrap(void)
 {return 1;}
-
-
