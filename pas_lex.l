@@ -11,6 +11,7 @@ literal		\"[^\"]*\"
 newline		\n
 whitespace	[ \t]+
 %%
+//關鍵字
 "auto"		{ printf("AUTO "); }
 "double"	{ printf("DOUBLE ")}
 "int"			{ printf("INT "); }
@@ -43,19 +44,45 @@ whitespace	[ \t]+
 "if"			{ printf("IF "); }
 "static"	{ printf("STATIC"); }
 "while"		{ printf("WHILE "); }
-
-"="		{ printf("ASSIGN "); }
-"=="		{ printf("EQ "); }
-"<"		{ printf("LT "); }
+//operator
 "+"		{ printf("PLUS "); }
 "-"		{ printf("MINUS "); }
 "*"		{ printf("MUL "); }
 "/"		{ printf("DIV "); }
+"%"		{ printf("MOD "); }
+"+="	{ printf("PLUSASSIGN "); }
+"-="	{ printf("MINUSASSIGN "); }
+"*="	{ printf("MULASSIGN "); }
+"/="	{ printf("DIVASSIGN "); }
+"%="	{ printf("MODASSIGN "); }
+"="		{ printf("ASSIGN "); }
+"=="	{ printf("EQ "); }
+"<"		{ printf("LT "); }
+">"		{ printf("GT "); }
+"<="	{ printf("BLT "); }
+">="	{ printf("BGT "); }
+"~"		{ printf("NOT "); }
+"!"		{ printf("NOT "); }
+"++"	{ printf("INCREMENT "); }
+"--"	{ printf("DECREMENT "); }
 "{"		{ printf("LCURLYBRACKET "); }
 "}"		{ printf("RCURLYBRACKET "); }
 "("		{ printf("LPAREN "); }
 ")"		{ printf("RPAREN "); }
 ";"		{ printf("SEMI "); }
+"<<"	{ printf("LSHIFT "); }
+">>"	{ printf("RSHIFT "); }
+"!="	{ printf("NOTEQ "); }
+"||"	{ printf("LOGICOR "); }
+"&&"	{ printf("LOGICAND "); }
+"|"		{ printf("BITOR "); }
+"&"		{ printf("BITAND "); }
+"^"		{ printf("BITXOR "); }
+"["		{ printf("LSUBSCRIPT "); }
+"]"		{ printf("RSUBSCRIPT "); }
+"->"	{ printf("DEREFERENCE "); }
+"."		{ printf("REFERENCE "); }
+
 {number}	{ printf("NUM "); }
 {identifier}	{ printf("ID "); }
 {literal}	{ printf("LITERAL "); }
