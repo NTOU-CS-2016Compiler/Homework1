@@ -9,7 +9,7 @@
 	1. Reserved words: For example, if, else, for. The complete list of reserved words may be found [here](https://msdn.microsoft.com/en-us/library/befeaky0.aspx). You only need to handle standard C reserved words (keywords). You don't need to handle other platform specific extensions. Also you don't need to handle preprocess directives like #include and #define. Please output reserved words **in uppercase**, e.g., IF, ELSE, and FOR.
 	2. Operators: For example, + and -. You may find the list of operators from here and here. Please enclose an identified operator **with brackets**, e.g., [+], [-], and [*].
 	3. Identifiers: A C identifier starts with a non-digit character from a set containing { _, a-z, A-Z}, and then followed by zero or more digits or characters { _, 0-9, a-z, A-Z}. Suppose you have found an identifier xyz, please output it **with a prefix "ID"**. For example, ID:xyz. 
-	4. Numbers: For simplicity, we do not separate the process for integer and real numbers. You can simply output a number with a prefix "NUM". For example, NUM:123. 
+	4. Numbers: For simplicity, we do not separate the process for integer and real numbers. You can simply output a number **with a prefix "NUM"**. For example, NUM:123. 
 	5. Strings: For simplicity, we treat texts quoted with either single-quotes (') or double-quotes (") as a string literal. But you cannot mix them together, i.e., you cannot start a string with a single-quote but terminate it with a double-quote, and vice-versa. It would be better if your program can handle the escape character (\), which treats a followed single-quote or double-quote symbol as a regular character. When your program outputs a string, **add a prefix "STR"** before the string. For example, STR:string-literal.
 
 -  Test Input:
