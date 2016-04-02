@@ -10,7 +10,6 @@ identifier	{letter_}({letter_}|{digit})*
 literal		\"[^\"]*\"
 newline		\n
 whitespace	[ \t]+
-string	\""([^\n\"\\]*(\\[.\n])*)*"\"
 %%
 "auto"			{ printf("AUTO "); }
 "double"		{ printf("DOUBLE "); }
