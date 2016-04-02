@@ -7,7 +7,7 @@ digits		{digit}+
 number		[+-]?{digits}(\.{digits})?(E[+-]?{digits})?
 letter_		[a-zA-Z_]
 identifier	{letter_}({letter_}|{digit})*
-literal		\"[^\"]*\"
+literal		\"[^\"]*\"|\'[^\']*\'
 newline		\n
 whitespace	[ \t]+
 %%
