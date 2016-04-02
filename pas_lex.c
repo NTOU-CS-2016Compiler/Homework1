@@ -1191,12 +1191,12 @@ YY_RULE_SETUP
 case 70:
 YY_RULE_SETUP
 #line 86 "pas_lex.l"
-{ printf("NUM "); }
+{ printf("NUM:%s ",yytext); }
 	YY_BREAK
 case 71:
 YY_RULE_SETUP
 #line 87 "pas_lex.l"
-{ printf("ID "); }
+{ printf("ID:%s ",yytext); }
 	YY_BREAK
 case 72:
 /* rule 72 can match eol */

@@ -83,8 +83,8 @@ whitespace	[ \t]+
 "->"	{ printf("DEREFERENCE "); }
 "."		{ printf("REFERENCE "); }
 
-{number}	{ printf("NUM "); }
-{identifier}	{ printf("ID "); }
+{number}	{ printf("NUM:%s ",yytext); }
+{identifier}	{ printf("ID:%s ",yytext); }
 {literal}	{ printf("LITERAL "); }
 {newline}	{ lineno++; printf("\n"); }
 {whitespace}	{ /* skip whitescapes */ }
