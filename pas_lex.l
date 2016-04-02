@@ -10,7 +10,7 @@ identifier	{letter_}({letter_}|{digit})*
 literal		\"[^\"]*\"
 newline		\n
 whitespace	[ \t]+
-
+string	\""([^\n\"\\]*(\\[.\n])*)*"\"
 %%
 "auto"			{ printf("AUTO "); }
 "double"		{ printf("DOUBLE "); }
@@ -83,9 +83,10 @@ whitespace	[ \t]+
 "->"	{ printf("DEREFERENCE "); }
 "."		{ printf("REFERENCE "); }
 
+{string}	{ printf("STR:%s ",yytext); }
 {number}	{ printf("NUM:%s ",yytext); }
 {identifier}	{ printf("ID:%s ",yytext); }
-{literal}	{ printf("LITERAL "); }
+{literal}	{ printf("STR:%s ",yytext); }
 {newline}	{ lineno++; printf("\n"); }
 {whitespace}	{ /* skip whitescapes */ }
 .		{ printf("<ERROR>"); }
