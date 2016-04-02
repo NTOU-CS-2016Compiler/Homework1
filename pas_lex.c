@@ -9,7 +9,7 @@
 #define FLEX_SCANNER
 #define YY_FLEX_MAJOR_VERSION 2
 #define YY_FLEX_MINOR_VERSION 5
-#define YY_FLEX_SUBMINOR_VERSION 39
+#define YY_FLEX_SUBMINOR_VERSION 35
 #if YY_FLEX_SUBMINOR_VERSION > 0
 #define FLEX_BETA
 #endif
@@ -47,6 +47,7 @@ typedef int16_t flex_int16_t;
 typedef uint16_t flex_uint16_t;
 typedef int32_t flex_int32_t;
 typedef uint32_t flex_uint32_t;
+typedef uint64_t flex_uint64_t;
 #else
 typedef signed char flex_int8_t;
 typedef short int flex_int16_t;
@@ -54,6 +55,7 @@ typedef int flex_int32_t;
 typedef unsigned char flex_uint8_t; 
 typedef unsigned short int flex_uint16_t;
 typedef unsigned int flex_uint32_t;
+#endif /* ! C99 */
 
 /* Limits of integral types. */
 #ifndef INT8_MIN
@@ -83,8 +85,6 @@ typedef unsigned int flex_uint32_t;
 #ifndef UINT32_MAX
 #define UINT32_MAX             (4294967295U)
 #endif
-
-#endif /* ! C99 */
 
 #endif /* ! FLEXINT_H */
 
@@ -168,7 +168,6 @@ extern FILE *yyin, *yyout;
 #define EOB_ACT_LAST_MATCH 2
 
     #define YY_LESS_LINENO(n)
-    #define YY_LINENO_REWIND_TO(ptr)
     
 /* Return all but the first "n" matched characters back to the input stream. */
 #define yyless(n) \
@@ -357,7 +356,7 @@ static void yy_fatal_error (yyconst char msg[]  );
  */
 #define YY_DO_BEFORE_ACTION \
 	(yytext_ptr) = yy_bp; \
-	yyleng = (size_t) (yy_cp - yy_bp); \
+	yyleng = (yy_size_t) (yy_cp - yy_bp); \
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
@@ -579,7 +578,7 @@ char *yytext;
 #line 2 "pas_lex.l"
 #include <stdio.h>
 int lineno = 1;
-#line 583 "pas_lex.c"
+#line 582 "pas_lex.c"
 
 #define INITIAL 0
 
@@ -668,7 +667,7 @@ static int input (void );
 /* This used to be an fputs(), but since the string might contain NUL's,
  * we now use fwrite().
  */
-#define ECHO do { if (fwrite( yytext, yyleng, 1, yyout )) {} } while (0)
+#define ECHO fwrite( yytext, yyleng, 1, yyout )
 #endif
 
 /* Gets input and stuffs it into "buf".  number of characters read, or YY_NULL,
@@ -679,7 +678,7 @@ static int input (void );
 	if ( YY_CURRENT_BUFFER_LVALUE->yy_is_interactive ) \
 		{ \
 		int c = '*'; \
-		size_t n; \
+		yy_size_t n; \
 		for ( n = 0; n < max_size && \
 			     (c = getc( yyin )) != EOF && c != '\n'; ++n ) \
 			buf[n] = (char) c; \
@@ -761,6 +760,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
+#line 13 "pas_lex.l"
+
+#line 766 "pas_lex.c"
+
 	if ( !(yy_init) )
 		{
 		(yy_init) = 1;
@@ -787,11 +790,6 @@ YY_DECL
 		yy_load_buffer_state( );
 		}
 
-	{
-#line 13 "pas_lex.l"
-
-#line 794 "pas_lex.c"
-
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
 		yy_cp = (yy_c_buf_p);
@@ -808,7 +806,7 @@ YY_DECL
 yy_match:
 		do
 			{
-			register YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)] ;
+			register YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)];
 			if ( yy_accept[yy_current_state] )
 				{
 				(yy_last_accepting_state) = yy_current_state;
@@ -1009,237 +1007,237 @@ YY_RULE_SETUP
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 47 "pas_lex.l"
+#line 46 "pas_lex.l"
 { printf("PLUS "); }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 48 "pas_lex.l"
+#line 47 "pas_lex.l"
 { printf("MINUS "); }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 49 "pas_lex.l"
+#line 48 "pas_lex.l"
 { printf("MUL "); }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 50 "pas_lex.l"
+#line 49 "pas_lex.l"
 { printf("DIV "); }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 51 "pas_lex.l"
+#line 50 "pas_lex.l"
 { printf("MOD "); }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 52 "pas_lex.l"
+#line 51 "pas_lex.l"
 { printf("PLUSASSIGN "); }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 53 "pas_lex.l"
+#line 52 "pas_lex.l"
 { printf("MINUSASSIGN "); }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 54 "pas_lex.l"
+#line 53 "pas_lex.l"
 { printf("MULASSIGN "); }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 55 "pas_lex.l"
+#line 54 "pas_lex.l"
 { printf("DIVASSIGN "); }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 56 "pas_lex.l"
+#line 55 "pas_lex.l"
 { printf("MODASSIGN "); }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 57 "pas_lex.l"
+#line 56 "pas_lex.l"
 { printf("ASSIGN "); }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 58 "pas_lex.l"
+#line 57 "pas_lex.l"
 { printf("EQ "); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 59 "pas_lex.l"
+#line 58 "pas_lex.l"
 { printf("LT "); }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 60 "pas_lex.l"
+#line 59 "pas_lex.l"
 { printf("GT "); }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 61 "pas_lex.l"
+#line 60 "pas_lex.l"
 { printf("BLT "); }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 62 "pas_lex.l"
+#line 61 "pas_lex.l"
 { printf("BGT "); }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 63 "pas_lex.l"
+#line 62 "pas_lex.l"
 { printf("NOT "); }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 64 "pas_lex.l"
+#line 63 "pas_lex.l"
 { printf("NOT "); }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 65 "pas_lex.l"
+#line 64 "pas_lex.l"
 { printf("INCREMENT "); }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 66 "pas_lex.l"
+#line 65 "pas_lex.l"
 { printf("DECREMENT "); }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 67 "pas_lex.l"
+#line 66 "pas_lex.l"
 { printf("LCURLYBRACKET "); }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 68 "pas_lex.l"
+#line 67 "pas_lex.l"
 { printf("RCURLYBRACKET "); }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 69 "pas_lex.l"
+#line 68 "pas_lex.l"
 { printf("LPAREN "); }
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 70 "pas_lex.l"
+#line 69 "pas_lex.l"
 { printf("RPAREN "); }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 71 "pas_lex.l"
+#line 70 "pas_lex.l"
 { printf("SEMI "); }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 72 "pas_lex.l"
+#line 71 "pas_lex.l"
 { printf("LSHIFT "); }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 73 "pas_lex.l"
+#line 72 "pas_lex.l"
 { printf("RSHIFT "); }
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 74 "pas_lex.l"
+#line 73 "pas_lex.l"
 { printf("NOTEQ "); }
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 75 "pas_lex.l"
+#line 74 "pas_lex.l"
 { printf("LOGICOR "); }
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 76 "pas_lex.l"
+#line 75 "pas_lex.l"
 { printf("LOGICAND "); }
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 77 "pas_lex.l"
+#line 76 "pas_lex.l"
 { printf("BITOR "); }
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 78 "pas_lex.l"
+#line 77 "pas_lex.l"
 { printf("BITAND "); }
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 79 "pas_lex.l"
+#line 78 "pas_lex.l"
 { printf("BITXOR "); }
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
-#line 80 "pas_lex.l"
+#line 79 "pas_lex.l"
 { printf("LSUBSCRIPT "); }
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 81 "pas_lex.l"
+#line 80 "pas_lex.l"
 { printf("RSUBSCRIPT "); }
 	YY_BREAK
 case 68:
 YY_RULE_SETUP
-#line 82 "pas_lex.l"
+#line 81 "pas_lex.l"
 { printf("DEREFERENCE "); }
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 83 "pas_lex.l"
+#line 82 "pas_lex.l"
 { printf("REFERENCE "); }
 	YY_BREAK
 case 70:
 YY_RULE_SETUP
-#line 84 "pas_lex.l"
+#line 83 "pas_lex.l"
 { printf("COMMA"); }
 	YY_BREAK
 case 71:
 YY_RULE_SETUP
-#line 85 "pas_lex.l"
+#line 84 "pas_lex.l"
 { printf("# ");}
 	YY_BREAK
 case 72:
 YY_RULE_SETUP
-#line 86 "pas_lex.l"
+#line 85 "pas_lex.l"
 { printf("NUM:%s ",yytext); }
 	YY_BREAK
 case 73:
 YY_RULE_SETUP
-#line 87 "pas_lex.l"
+#line 86 "pas_lex.l"
 { printf("ID:%s ",yytext); }
 	YY_BREAK
 case 74:
 /* rule 74 can match eol */
 YY_RULE_SETUP
-#line 88 "pas_lex.l"
+#line 87 "pas_lex.l"
 { printf("STR:%s ",yytext); }
 	YY_BREAK
 case 75:
 /* rule 75 can match eol */
 YY_RULE_SETUP
-#line 89 "pas_lex.l"
+#line 88 "pas_lex.l"
 { lineno++; printf("\n"); }
 	YY_BREAK
 case 76:
 YY_RULE_SETUP
-#line 90 "pas_lex.l"
+#line 89 "pas_lex.l"
 { /* skip whitescapes */ }
 	YY_BREAK
 case 77:
 YY_RULE_SETUP
-#line 91 "pas_lex.l"
+#line 90 "pas_lex.l"
 { printf("<ERROR>"); }
 	YY_BREAK
 case 78:
 YY_RULE_SETUP
-#line 92 "pas_lex.l"
+#line 91 "pas_lex.l"
 ECHO;
 	YY_BREAK
-#line 1243 "pas_lex.c"
+#line 1241 "pas_lex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1370,7 +1368,6 @@ case YY_STATE_EOF(INITIAL):
 			"fatal flex scanner internal error--no action found" );
 	} /* end of action switch */
 		} /* end of scanning one token */
-	} /* end of user's declarations */
 } /* end of yylex */
 
 /* yy_get_next_buffer - try to read in a new buffer
@@ -1433,7 +1430,7 @@ static int yy_get_next_buffer (void)
 			{ /* Not enough room in the buffer - grow it. */
 
 			/* just a shorter name for the current buffer */
-			YY_BUFFER_STATE b = YY_CURRENT_BUFFER_LVALUE;
+			YY_BUFFER_STATE b = YY_CURRENT_BUFFER;
 
 			int yy_c_buf_p_offset =
 				(int) ((yy_c_buf_p) - b->yy_ch_buf);
@@ -1566,7 +1563,7 @@ static int yy_get_next_buffer (void)
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 	yy_is_jam = (yy_current_state == 200);
 
-		return yy_is_jam ? 0 : yy_current_state;
+	return yy_is_jam ? 0 : yy_current_state;
 }
 
     static void yyunput (int c, register char * yy_bp )
@@ -1654,7 +1651,7 @@ static int yy_get_next_buffer (void)
 				case EOB_ACT_END_OF_FILE:
 					{
 					if ( yywrap( ) )
-						return EOF;
+						return 0;
 
 					if ( ! (yy_did_buffer_switch_on_eof) )
 						YY_NEW_FILE;
@@ -1790,6 +1787,10 @@ static void yy_load_buffer_state  (void)
 	yyfree((void *) b  );
 }
 
+#ifndef __cplusplus
+extern int isatty (int );
+#endif /* __cplusplus */
+    
 /* Initializes or reinitializes a buffer.
  * This function is sometimes called more than once on the same buffer,
  * such as during a yyrestart() or at EOF.
@@ -1994,8 +1995,8 @@ YY_BUFFER_STATE yy_scan_string (yyconst char * yystr )
 
 /** Setup the input buffer state to scan the given bytes. The next call to yylex() will
  * scan from a @e copy of @a bytes.
- * @param yybytes the byte buffer to scan
- * @param _yybytes_len the number of bytes in the buffer pointed to by @a bytes.
+ * @param bytes the byte buffer to scan
+ * @param len the number of bytes in the buffer pointed to by @a bytes.
  * 
  * @return the newly allocated buffer state object.
  */
@@ -2003,8 +2004,7 @@ YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, yy_size_t  _yybytes_len 
 {
 	YY_BUFFER_STATE b;
 	char *buf;
-	yy_size_t n;
-	yy_size_t i;
+	yy_size_t n, i;
     
 	/* Get memory for full buffer, including space for trailing EOB's. */
 	n = _yybytes_len + 2;
@@ -2234,7 +2234,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 92 "pas_lex.l"
+#line 91 "pas_lex.l"
 
 
 
