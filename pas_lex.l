@@ -43,7 +43,6 @@ whitespace	[ \t]+
 "if"				{ printf("IF "); }
 "static"		{ printf("STATIC"); }
 "while"			{ printf("WHILE "); }
-
 "+"		{ printf("PLUS "); }
 "-"		{ printf("MINUS "); }
 "*"		{ printf("MUL "); }
