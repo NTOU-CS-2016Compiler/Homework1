@@ -81,8 +81,7 @@ whitespace	[ \t]+
 "]"		{ printf("RSUBSCRIPT "); }
 "->"	{ printf("DEREFERENCE "); }
 "."		{ printf("REFERENCE "); }
-
-{string}	{ printf("STR:%s ",yytext); }
+","		{ printf("COMMA"); }
 {number}	{ printf("NUM:%s ",yytext); }
 {identifier}	{ printf("ID:%s ",yytext); }
 {literal}	{ printf("STR:%s ",yytext); }
