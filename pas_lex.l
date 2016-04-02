@@ -82,6 +82,7 @@ whitespace	[ \t]+
 "->"	{ printf("DEREFERENCE "); }
 "."		{ printf("REFERENCE "); }
 ","		{ printf("COMMA"); }
+"#"    { printf("# ");}
 {number}	{ printf("NUM:%s ",yytext); }
 {identifier}	{ printf("ID:%s ",yytext); }
 {literal}	{ printf("STR:%s ",yytext); }
