@@ -50,7 +50,7 @@ whitespace	[ \t]+
 "-=" { printf("[-=] "); }
 "*=" { printf("[*=] "); }
 "/=" { printf("[/=] "); }
-"%="	{ printf("[%=] "); }
+"%="	{ printf("[%%=] "); }
 "!=" { printf("[!=] "); }
 "<<" { printf("[<<] "); }
 ">>" { printf("[>>] "); }
@@ -75,7 +75,7 @@ whitespace	[ \t]+
 ":" { printf("[:] "); }
 "="		{ printf("[=] "); }
 "~" { printf("[~] "); }
-"%" { printf("[%] "); }
+"%" { printf("[%%] "); }
 "{"		{ printf("[{] "); }
 "}"		{ printf("[}] "); }
 "("		{ printf("[(] "); }
